@@ -8,14 +8,14 @@ $.get('http://localhost:4040/api/inspectors/hostnameStats', function (data) {
   var legendSpacing = 4;
 
 
-  var color = d3.scale.ordinal()
+  var color = d3.scaleOrdinal()
     .range(['#98abc5', '#8a89a6', '#7b6888', '#6b486b', '#a05d56', '#d0743c', '#ff8c00']);
 
-  var arc = d3.svg.arc()
+  var arc = d3.arc()
     .innerRadius(radius - donutWidth)
     .outerRadius(radius);
 
-  var pie = d3.layout.pie()
+  var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.counted; });
 
@@ -44,7 +44,7 @@ $.get('http://localhost:4040/api/inspectors/hostnameStats', function (data) {
       return color(d.data._id);
     });
 
-  var tooltip = d3.select('#charts')                               // NEW
+  var tooltip = svg                               // NEW
     .append('div')                                                // NEW
     .attr('class', 'tooltip');                                    // NEW
 
