@@ -132,5 +132,4 @@ $.get('http://localhost:4040/api/scanners/monthData', function (data) {
     .attr('dy', '0.35em')
     .style('font', '10px sans-serif')
     .text(function(d) { return d.id; });
-
 });
