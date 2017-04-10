@@ -44,7 +44,7 @@ $.get('http://localhost:4040/api/inspectors/hostnameStats', function (data) {
       return color(d.data._id);
     });
 
-  var tooltip = svg                               // NEW
+  var tooltip = d3.select('#charts')                               // NEW
     .append('div')                                                // NEW
     .attr('class', 'tooltip');                                    // NEW
 
