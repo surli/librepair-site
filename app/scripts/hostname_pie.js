@@ -1,10 +1,14 @@
 $.get('http://localhost:4040/api/inspectors/hostnameStats', function (data) {
-  Highcharts.chart('container', {
+  var htmlElement = $('<div></div>');
+  $('#charts').append(htmlElement);
+
+  Highcharts.chart({
     chart: {
       plotBackgroundColor: null,
       plotBorderWidth: null,
       plotShadow: false,
-      type: 'pie'
+      type: 'pie',
+      renderTo: htmlElement[0]
     },
     title: {
       text: 'Build treated by hostname'
